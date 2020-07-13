@@ -7,6 +7,8 @@ import io.restassured.response.Response;
 //given().cookie("session_id", "1234").when().get("/users/eugenp")
 //.then().statusCode(200);
 
+
+
 public class Servicos implements ServicosImpl {
 
 	private Response resposta;

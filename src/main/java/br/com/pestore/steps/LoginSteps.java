@@ -39,7 +39,6 @@ public class LoginSteps {
 		pdfgenerator.conteudoPDF("realizo o cadastro de usuario e gero o id da sessao",
 				resposta.logarEvidencia());
 		
-		
 	}
 
 	@Then("^a API deve retornar na response codigo (\\d+) com o ID da sessao$")
