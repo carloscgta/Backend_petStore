@@ -1,4 +1,4 @@
-package br.com.pestore;
+package br.com.pestore.runner;
 
 import static org.junit.Assert.assertTrue;
 

@@ -10,9 +10,9 @@ import org.yaml.snakeyaml.Yaml;
 public class YamlHelper {
 
 	public Object getAtributo(String... param) throws Exception {
-		File file = new File("/home/runner/work/exame-automacao-testes-backend/exame-automacao-testes-backend/src/main/resources/Properties.yaml");
+		File file = new File("src/main/resources/Properties.yaml");
 		if(file.exists()) {
-			file = new File("/home/runner/work/exame-automacao-testes-backend/exame-automacao-testes-backend/src/main/resources/Properties.yaml");
+			file = new File("src/main/resources/Properties.yaml");
 		}
 		else{
 			file = new File("src/main/resources/Properties.yaml");
