@@ -12,4 +12,5 @@ Scenario Outline: realizar Login para gerar ID da sessao
 
 Examples:
 |username							|password					|
-|anamaia2020					|Solrac@89				|
+|joaodedeus					|Solrac@89				|
+

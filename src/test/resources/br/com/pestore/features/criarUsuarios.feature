@@ -7,7 +7,7 @@ Feature: Criar usuarios
 
 @criarUsuario
 Scenario Outline: Criar usuario
-	       Given que eu acesse o endpoint da aplicacao "login" para o cadastro de usuario "<username>" "<firstname>" com "<lastname>" "<email>"  "<password>" "<phone>"
+	       Given que eu acesse o endpoint da aplicacao "user" para o cadastro de usuario "<username>" "<firstname>" com "<lastname>" "<email>"  "<password>" "<phone>"
 	       Then a API me retorna o status code 200 para o cadastro
 
 Examples:

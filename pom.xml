@@ -81,7 +81,7 @@
 				<configuration>
 					<includes>
 					 
-						<include>br/com/pestore/runner/LoginSteps.java</include>
+						<include>br/com/pestore/runner/RunnerCriarUsuario.java</include>
 						
 					</includes>
 					<parallel>all</parallel>

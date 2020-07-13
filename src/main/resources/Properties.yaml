@@ -1,4 +1,9 @@
+nome-env:
+   dev: dev
+   uat: uat
+   hom: hom  
+   
 login: https://petstore.swagger.io/v2/user/login
 
-postPaymentProfiles: https://petstore.swagger.io/v2/user
+user: https://petstore.swagger.io/v2/user
 

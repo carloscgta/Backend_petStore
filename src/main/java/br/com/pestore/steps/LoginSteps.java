@@ -11,6 +11,8 @@ import br.com.pestore.utils.YamlHelper;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 
 public class LoginSteps {
 	
@@ -29,9 +31,27 @@ public class LoginSteps {
 		pdfgenerator.iniciaPDF(cenario);
 	}
 	
+	@Given("^que eu realizado o login no endpoint \"([^\"]*)\" com as info \"([^\"]*)\" \"([^\"]*)\"$")
+	public void que_eu_realizado_o_login_no_endpoint_com_as_info(String loginEndpoint, String username, String password) throws Throwable {
+	 
+		
+		resposta = verbos.getEndPointComParametros("https://petstore.swagger.io/v2/user/login", username,password);
+		pdfgenerator.conteudoPDF("realizo o cadastro de usuario e gero o id da sessao",
+				resposta.logarEvidencia());
+		
+		
+	}
+
+	@Then("^a API deve retornar na response codigo (\\d+) com o ID da sessao$")
+	public void a_API_deve_retornar_na_response_codigo_com_o_ID_da_sessao(int statusCode) throws Throwable {
+	 
+		resposta.getResposta().statusCode(statusCode);
+		String texto = Integer.toString(resposta.getResponse().getStatusCode());
+		pdfgenerator.conteudoPDF("Entao a API me retorna o status code:", "o status da resposta é: " + texto);
+
+		
+	}
 	
-
-
 	@After(value = "@ralizarLogin")
 	public void finalizaPDF(Scenario cenario) throws Exception {
 

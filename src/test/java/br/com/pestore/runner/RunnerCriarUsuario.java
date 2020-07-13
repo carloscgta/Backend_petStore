@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(glue = { "br.com.pestore.steps" }, 
-                 features = {"/src/test/resources/br/com/pestore/features" } 
+                 features = {"./src/test/resources/br/com/pestore/features" } 
                  ,tags = {"@ralizarLogin"})
 
 public class RunnerCriarUsuario {
