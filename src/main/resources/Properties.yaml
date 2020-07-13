@@ -1,0 +1,4 @@
+login: https://petstore.swagger.io/v2/user/login
+
+postPaymentProfiles: https://petstore.swagger.io/v2/user
+

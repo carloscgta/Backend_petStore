@@ -81,7 +81,7 @@
 				<configuration>
 					<includes>
 					 
-						<include>br/com/pestore/runner/nomedaclasse.java</include>
+						<include>br/com/pestore/runner/LoginSteps.java</include>
 						
 					</includes>
 					<parallel>all</parallel>
