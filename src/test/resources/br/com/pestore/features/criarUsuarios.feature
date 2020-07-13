@@ -1,27 +1,17 @@
 #Author: carloscgta@gmail.com
 #Keywords Summary : Realizar Login e Criar um usuário
 
-@tag
-Feature: Title of your feature
-  I want to use this template for my feature file
+@geralCriarUsuarios
+Feature: Criar usuarios
+  				Eu como usuario quero poder acessar o endpoint /user e criar 3 usuarios
 
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+@criarUsuario
+Scenario Outline: Criar usuario
+	       Given que eu acesse o endpoint da aplicacao "login" para o cadastro de usuario "<username>" "<firstname>" com "<lastname>" "<email>"  "<password>" "<phone>"
+	       Then a API me retorna o status code 200 para o cadastro
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+Examples:
+|username							|firstname 	|lastname			|email													|password					|phone								|
+|anamaia2020					|Ana 			 	|Maia 				|anamaia2020@gmail.com					|Solrac@89				|11930035119 					|
+|rodrigomendes2020		|Rodrigo 		|Mendes 			|rodrigomendes2020@gmail.com		|Solrac@89				|11930035119					|
+|tatianavasconcelos		|Tatiana 		|Vasconcelos 	|tatianavasconcelos@gmail.com		|Solrac@89				|11930035119					|
