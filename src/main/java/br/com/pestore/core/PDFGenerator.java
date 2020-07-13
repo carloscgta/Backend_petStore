@@ -65,7 +65,7 @@ public class PDFGenerator {
 			formatColor.setColor(BaseColor.BLACK);
 			String content = "RELATORIO DE AUTOMACAO DE TESTES";
 
-			Image logo = Image.getInstance("./src/main/report/logo-exame.png");
+			Image logo = Image.getInstance("./src/main/report/itau-logo.jpg");
 			logo.scalePercent(100);
 			document.add(logo);
 			document.add(Chunk.NEWLINE);
