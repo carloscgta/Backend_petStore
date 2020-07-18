@@ -2,7 +2,7 @@ package br.com.pestore.steps;
 
 import com.google.gson.Gson;
 
-import br.com.pestore.core.PDFGenerator;
+
 import br.com.pestore.pojos.Login;
 import br.com.pestore.servicos.Autenticacao;
 import br.com.pestore.servicos.Resposta;
@@ -18,7 +18,7 @@ public class LoginSteps {
 	
 	
 	Gson gson = new Gson();
-	PDFGenerator pdfgenerator = new PDFGenerator();
+	
 	Autenticacao autenticacao = new Autenticacao();
 	YamlHelper yaml = new YamlHelper();
 	Login login = new Login();
@@ -28,7 +28,7 @@ public class LoginSteps {
 
 	@Before(value = "@ralizarLogin")
 	public void before(Scenario cenario) throws Exception {
-		pdfgenerator.iniciaPDF(cenario);
+		
 	}
 	
 	@Given("^que eu realizado o login no endpoint \"([^\"]*)\" com as info \"([^\"]*)\" \"([^\"]*)\"$")
@@ -36,8 +36,7 @@ public class LoginSteps {
 	 
 		
 		resposta = verbos.getEndPointComParametros("https://petstore.swagger.io/v2/user/login", username,password);
-		pdfgenerator.conteudoPDF("realizo o cadastro de usuario e gero o id da sessao",
-				resposta.logarEvidencia());
+		
 		
 	}
 
@@ -46,7 +45,7 @@ public class LoginSteps {
 	 
 		resposta.getResposta().statusCode(statusCode);
 		String texto = Integer.toString(resposta.getResponse().getStatusCode());
-		pdfgenerator.conteudoPDF("Entao a API me retorna o status code:", "o status da resposta é: " + texto);
+		
 
 		
 	}
@@ -55,7 +54,7 @@ public class LoginSteps {
 	public void finalizaPDF(Scenario cenario) throws Exception {
 
 		scen = cenario;
-		pdfgenerator.fechaPDF(scen);
+		
 
 	}
 

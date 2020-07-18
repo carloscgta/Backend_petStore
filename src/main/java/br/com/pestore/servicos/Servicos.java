@@ -31,8 +31,11 @@ public class Servicos implements ServicosImpl {
 
 	@Override
 	public br.com.pestore.servicos.Resposta postEndPoint(String endPoint, Object mensagem) {
-		// TODO Auto-generated method stub
-		return null;
+		resposta = given()
+				  .contentType("application/json")
+				  .body(mensagem).when().log()
+				.  all().post(endPoint);
+		return new Resposta(resposta);
 	}
 
 	@Override

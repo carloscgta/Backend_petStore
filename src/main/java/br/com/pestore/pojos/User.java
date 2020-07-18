@@ -7,9 +7,10 @@ public class User {
 
 	@SerializedName("id")
 	private Integer id;
+	
 	@SerializedName("username")
 	private String username;
-	
+		
 	@SerializedName("firstName")
 	private String firstName;
 	
@@ -22,6 +23,38 @@ public class User {
 	@SerializedName("phone")
 	private String phone;
 	
+	@SerializedName("password")
+	private String password;
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	 * @return the userStatus
+	 */
+	public Integer getUserStatus() {
+		return userStatus;
+	}
+
+	/**
+	 * @param userStatus the userStatus to set
+	 */
+	public void setUserStatus(Integer userStatus) {
+		this.userStatus = userStatus;
+	}
+
+	@SerializedName("userStatus")
+	private Integer userStatus;
 	
 	public Integer getId() {
 		return id;
