@@ -1,5 +1,7 @@
 package br.com.pestore.steps;
 
+import org.apache.http.HttpStatus;
+
 import com.google.gson.Gson;
 
 
@@ -60,7 +62,7 @@ public class CriarUserSteps {
 	public void a_API_me_retorna_o_status_code(int statusCode) throws Throwable {
 		String texto = Integer.toString(resposta.getResponse().getStatusCode());
 		System.out.println("O status code retornando é: "+ texto);
-		resposta.getResposta().statusCode(statusCode);
+		resposta.getResposta().statusCode(HttpStatus.SC_OK);
 		
 		
 	}
