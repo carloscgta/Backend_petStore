@@ -4,9 +4,6 @@ import static io.restassured.RestAssured.given;
 
 import io.restassured.response.Response;
 
-//given().cookie("session_id", "1234").when().get("/users/eugenp")
-//.then().statusCode(200);
-
 
 
 public class Servicos implements ServicosImpl {
@@ -31,11 +28,19 @@ public class Servicos implements ServicosImpl {
 
 	@Override
 	public br.com.pestore.servicos.Resposta postEndPoint(String endPoint, Object mensagem) {
+	
 		resposta = given()
 				  .contentType("application/json")
 				  .body(mensagem).when().log()
 				.  all().post(endPoint);
 		return new Resposta(resposta);
+		
+		
+		//resposta = given().cookie("session_id", "1234").when().get("/users/eugenp")
+		//.then().statusCode(200);
+
+
+		
 	}
 
 	@Override

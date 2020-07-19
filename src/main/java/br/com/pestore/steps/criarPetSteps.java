@@ -1,7 +1,14 @@
 package br.com.pestore.steps;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpStatus;
+
 import com.google.gson.Gson;
 
+
+import br.com.pestore.pojos.Category;
 import br.com.pestore.pojos.Pet;
 import br.com.pestore.servicos.Autenticacao;
 import br.com.pestore.servicos.Resposta;
@@ -21,12 +28,16 @@ public class criarPetSteps {
 	Autenticacao autenticacao = new Autenticacao();
 	YamlHelper yaml = new YamlHelper();
 	Pet pet = new Pet();
+	Category categoryPet = new Category();
 	Servicos verbos = new Servicos();
 	Resposta resposta;
 	Scenario scen;	
+	
+	
 
-	@Before(value = "@ralizarLogin")
+	@Before(value = "@criarPet")
 	public void before(Scenario cenario) throws Exception {
+		
 		
 		
 	}
@@ -38,18 +49,31 @@ public class criarPetSteps {
 	}
 
 	@Given("^faco uma chamada no endpoint \"([^\"]*)\" com os dados  (\\d+) (\\d+) \"([^\"]*)\" com \"([^\"]*)\" \"([^\"]*)\"$")
-	public void faco_uma_chamada_no_endpoint_com_os_dados_com(String arg1, int arg2, int arg3, String arg4, String arg5, String arg6) throws Throwable {
-	    
+	public void faco_uma_chamada_no_endpoint_com_os_dados_com(String endpointPet, int id, int categoryId, String categoryName, String name, String status) throws Throwable {
+	    categoryPet.setId(categoryId);
+	    categoryPet.setName(categoryName);
+		pet.setCategory(categoryPet);
+		pet.setId(id);
+		pet.setName(name);
+		pet.setStatus(status);
+		String json = gson.toJson(pet);
+		resposta = verbos.postEndPoint("https://petstore.swagger.io/v2/pet", json);
+		
 		
 	}
 
 	@Then("^o servico cria o pet retornando codigo (\\d+)$")
-	public void o_servico_cria_o_pet_retornando_codigo(int arg1) throws Throwable {
-	   
+	public void o_servico_cria_o_pet_retornando_codigo(int statusCode) throws Throwable {
+	                                  
+	String texto = Integer.toString(resposta.getResponse().getStatusCode());    
+	
+	System.out.println("O status code retornando é: "+ texto);
+	resposta.getResposta().statusCode(HttpStatus.SC_OK);
+	
 		
 	}
 	
-	@After(value = "@criarUsuario")
+	@After(value = "@criarPet")
 	public void finalizaPDF(Scenario cenario) throws Exception {
 
 		scen = cenario;

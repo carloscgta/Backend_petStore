@@ -7,36 +7,22 @@ import com.google.gson.annotations.SerializedName;
 public class Pet {
 
 	
-	@SerializedName("id")
-	private String id;
-	
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the category
-	 */
-	public List<Category> getCategory() {
-		return category;
-	}
-
-	/**
-	 * @param category the category to set
-	 */
-	public void setCategory(List<Category> category) {
-		this.category = category;
-	}
+	@SerializedName("id")
+	private Integer id;
 
 	/**
 	 * @return the name
@@ -66,8 +52,22 @@ public class Pet {
 		this.status = status;
 	}
 
+	/**
+	 * @return the category
+	 */
+	public Category getCategory() {
+		return category;
+	}
+
+	/**
+	 * @param category the category to set
+	 */
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	@SerializedName("category")
-	private List<Category> category;
+	private Category category;
 	
 	@SerializedName("name")
 	private String name;
