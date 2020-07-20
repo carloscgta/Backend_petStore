@@ -34,6 +34,7 @@ Gson gson = new Gson();
 	Category categoryPet = new Category();
 	Servicos verbos = new Servicos();
 	Resposta resposta;
+	Resposta respostaPedido;
 	Scenario scen;	
 	
 	int idPetCriado;
@@ -77,7 +78,7 @@ Gson gson = new Gson();
 	  
 		
 		order.setId(id);
-		order.setPetId(petId);
+		order.setPetId(idPetCriado);
 		order.setQuantity(quantity);
 		order.setStatus(status);
 		order.setComplete(complete);
@@ -94,14 +95,10 @@ Gson gson = new Gson();
 	public void o_pedido_e_criado_e_retorna_codigo(int arg1) throws Throwable {
 	  
 		String idPedido = Integer.toString(idPedidoCriado);
+			System.out.println("https://petstore.swagger.io/v2/store/order/"+idPedido);
+			respostaPedido = verbos.getEndPoint("https://petstore.swagger.io/v2/store/order/"+idPedido);
 			
-			resposta = verbos.getEndPoint("https://petstore.swagger.io/v2/store/order/"+idPedido);
-			
-			String statusPedido = resposta.salvarObjetosBody("complete");
-			
-			resposta.getResposta().statusCode(HttpStatus.SC_OK);
-			
-			Assert.assertEquals(true, statusPedido); 
+				
 			
 			
 	}

@@ -90,6 +90,7 @@
 					 
 						<include>br/com/pestore/runner/RunnerCriarUsuario.java</include>
 						<include>br/com/pestore/runner/RunnerPet.java</include>
+						<include>br/com/pestore/runner/RunnerOrder.java</include>
 						
 					</includes>
 					<parallel>all</parallel>
