@@ -8,9 +8,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(glue = { "br.com.pestore.steps" }, 
                  features = {"./src/test/resources/br/com/pestore/features" } 
-                 ,tags = {"@criarUsuario"})
-
-public class RunnerCriarUsuario {
+                 ,tags = {"@criarPedidoNaLoja"})
+public class RunnerOrder {
 
 
 }

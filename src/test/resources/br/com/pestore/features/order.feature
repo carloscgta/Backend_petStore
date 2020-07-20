@@ -1,27 +1,22 @@
 #Author: carloscgta@gmail.com
-#Keywords Summary : Fazer Pedido na Loja
+#Keywords Summary : Realizar um pedido de um animal na loja
 
-@tag
-Feature: Title of your feature
-  I want to use this template for my feature file
 
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+@geral
+Feature: Criar um Pet
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
+  @criarPedidoNaLoja
+  Scenario Outline: fazer um  pedido na loja
+    Given eu crio um pet com os dados:
+    	| id  | categoryId 	| categoryName  		| name	  	| status 		 		|	 
+      | 500 |     5			 	| dog 							| Snoopy  	| available		  |
+      | 600 |     7 			| galgo   		 			| Bichento  | available  		|
+      | 700 |     8 			| viraLata    			| Bichento  | available  		|
+    And faco a venda desses pets para tres clientes "order" com os dados  <id> <petId> <quantity> com "<status>" "<complete>" 
+    Then o pedido e criado e retorna codigo 200
 
     Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+      | id  | petId			 	| quantity  		| status	  	| complete 		 		|
+      | 50 	|     5			 	| 1 						| placed  		| true		  			|
+      | 60 	|     7 			| 1   		 			| placed  		| true  					|
+      | 70	|     8 			| 1    					| placed		  | true			  		|
